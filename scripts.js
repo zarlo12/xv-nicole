@@ -31,7 +31,7 @@ function obtenerCodigo() {
 function actualizarHTMLConInvitado(invitado) {
   // Actualizar el nombre del invitado
   const nombreInvitadoElem = document.getElementById("nombreInvitado");
-  nombreInvitadoElem.textContent = invitado.invitado;
+  nombreInvitadoElem.value = invitado.invitado;
 
   // Actualizar el select con el número de invitados
   const listaInvitadosElem = document.getElementById("listaInvitados");
@@ -65,7 +65,7 @@ if (invitado) {
 } else {
   // Mensaje o acción si el invitado no se encuentra
   const nombreInvitadoElem = document.getElementById("nombreInvitado");
-  nombreInvitadoElem.textContent = "Invitado no encontrado.";
+  nombreInvitadoElem.value = "Invitado no encontrado.";
 }
 
 // Función para enviar el mensaje de WhatsApp
@@ -106,8 +106,7 @@ function enviarWhatsAppForm(nombre_form, anecdota_form, deseos_form) {
 document
   .getElementById("btn_send_counterzz")
   .addEventListener("click", function () {
-    const nombreInvitado =
-      document.getElementById("nombreInvitado").textContent;
+    const nombreInvitado = document.getElementById("nombreInvitado").value;
     const numeroInvitados = document.getElementById("listaInvitados").value;
 
     if (nombreInvitado == "Invitado no encontrado.") {

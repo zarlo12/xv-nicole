@@ -17,6 +17,15 @@
       content="Te invito a ser parte de una noche inolvidable y única, espero poder compartir este bello momento a tu lado."
     />
 
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+    <style>
+      .elementor-message-danger {
+        display: none;
+      }
+    </style>
+
     <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Nicole | Mis XV" />
@@ -1505,120 +1514,65 @@
                       name="referer_title"
                       value="Michelle | Mis XV"
                     />
-
                     <input type="hidden" name="queried_id" value="44462" />
 
                     <div
                       class="elementor-form-fields-wrapper elementor-labels-above"
                     >
+                      <!-- NOMBRE DEL INVITADO (readonly) -->
                       <div
                         class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-indicatunombre elementor-col-100 elementor-field-required"
                       >
                         <label
-                          for="form-field-indicatunombre"
+                          for="nombreInvitado"
                           class="elementor-field-label"
                         >
                           Nombre del invitado
                         </label>
                         <input
-                          size="1"
                           type="text"
-                          name="form_fields[indicatunombre]"
-                          id="form-field-indicatunombre"
-                          class="elementor-field elementor-size-md  elementor-field-textual"
+                          id="nombreInvitado"
+                          class="elementor-field elementor-size-md elementor-field-textual"
                           placeholder="Nombre completo"
-                          required="required"
+                          readonly
                         />
                       </div>
+
+                      <!-- SELECT DE ACOMPAÑANTES -->
                       <div
                         class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-nombredelosacompanantes elementor-col-100 elementor-field-required"
                       >
                         <label
-                          for="form-field-nombredelosacompanantes"
+                          for="listaInvitados"
                           class="elementor-field-label"
                         >
                           Número de acompañantes
                         </label>
                         <div
-                          class="elementor-field elementor-select-wrapper remove-before "
+                          class="elementor-field elementor-select-wrapper remove-before"
                         >
                           <div class="select-caret-down-wrapper">
-                            <i aria-hidden="true" class="eicon-caret-down"></i>
+                            <i aria-hidden="true" class="fas fa-caret-down"></i>
                           </div>
                           <select
                             name="form_fields[nombredelosacompanantes]"
-                            id="form-field-nombredelosacompanantes"
+                            id="listaInvitados"
                             class="elementor-field-textual elementor-size-md"
                             required="required"
                           >
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <!-- tu JS vaciará/llenará esto -->
                           </select>
                         </div>
                       </div>
-                      <!-- <div
-                        class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-field_3c614f8 elementor-col-100 elementor-field-required"
-                      >
-                        <label
-                          for="form-field-field_3c614f8"
-                          class="elementor-field-label"
-                        >
-                          ¿Podrás asistir?
-                        </label>
-                        <div
-                          class="elementor-field-subgroup  elementor-subgroup-inline"
-                        >
-                          <span class="elementor-field-option"
-                            ><input
-                              type="radio"
-                              value="Sí, asistiré"
-                              id="form-field-field_3c614f8-0"
-                              name="form_fields[field_3c614f8]"
-                              required="required"
-                            />
-                            <label for="form-field-field_3c614f8-0"
-                              >Sí, asistiré</label
-                            ></span
-                          ><span class="elementor-field-option"
-                            ><input
-                              type="radio"
-                              value="No asistiré"
-                              id="form-field-field_3c614f8-1"
-                              name="form_fields[field_3c614f8]"
-                              required="required"
-                            />
-                            <label for="form-field-field_3c614f8-1"
-                              >No asistiré</label
-                            ></span
-                          >
-                        </div>
-                      </div> -->
-                      <!-- <div
-                        class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-palabrasobuenosdeseos elementor-col-100"
-                      >
-                        <label
-                          for="form-field-palabrasobuenosdeseos"
-                          class="elementor-field-label"
-                        >
-                          Palabras o buenos deseos
-                        </label>
-                        <textarea
-                          class="elementor-field-textual elementor-field  elementor-size-md"
-                          name="form_fields[palabrasobuenosdeseos]"
-                          id="form-field-palabrasobuenosdeseos"
-                          rows="4"
-                          placeholder="Escribe aquí"
-                        ></textarea>
-                      </div> -->
+
+                      <!-- BOTÓN -->
                       <div
                         class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons"
                       >
                         <button
-                          class="elementor-button elementor-size-lg"
-                          type="submit"
+                          type="button"
                           id="btn_send_counterzz"
+                          class="elementor-button elementor-size-lg"
                         >
                           <span class="elementor-button-content-wrapper">
                             <span class="elementor-button-icon">
@@ -2124,6 +2078,8 @@
       src="https://retoquedigitalmx.com/wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min.js?ver=1.7.1016"
       id="wpr-modal-popups-js-js"
     ></script>
+
+    <script type="module" src="./scripts.js"></script>
   </body>
 </html>
 
